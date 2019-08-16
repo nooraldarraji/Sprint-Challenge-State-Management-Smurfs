@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
-import { getSmurfs } from './actions'
+// import { getSmurfs } from './actions'
+// import { addSmurfs } from './actions'
 import { connect } from 'react-redux';
 import SmurfList from './components/SmurfList'
+import SmurfForm from './components/SmurfForm'
 
 class App extends Component {
-    componentDidMount() {
-    this.props.getSmurfs()
-    }
-
+    
   render() {
     if(this.props.fetching){
       return <h2>Loading smurfs...</h2>
@@ -19,6 +18,7 @@ class App extends Component {
         <div>Welcome to your state management version of Smurfs!</div>
         <div>Start inside of your `src/index.js` file!</div>
         <div>Have fun!</div>
+        <SmurfForm />        
         <SmurfList />
       </div>
     );
@@ -32,4 +32,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect( mapStateToProps, { getSmurfs })(App); 
+export default connect( mapStateToProps, {})(App); 
